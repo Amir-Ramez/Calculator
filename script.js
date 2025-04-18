@@ -8,6 +8,7 @@ const operators = document.querySelectorAll('.operator');
 let currentInput = document.querySelector('.display .current');
 let inputHistory = document.querySelector('.display .history');
 let equalButton = document.querySelector('.equalButton');
+let dotButton = document.querySelector('.dotButton');
 
 operands.forEach((numericalButton) => {
     numericalButton.addEventListener('click', (e) => {
@@ -43,7 +44,7 @@ function evaluate() {
         operator
     );
 
-    inputHistory.innerHTML = '';
+    inputHistory.textContent = '';
     currentInput.textContent = `${result}`;
     firstOperand = String(result);
     secondOperand = '';
@@ -59,4 +60,17 @@ function equal(firstOperand, secondOperand, operator) {
 
 equalButton.addEventListener('click', () => {
     evaluate();
+});
+
+dotButton.addEventListener('click', () => {
+    if (operator === '') {
+        if (!firstOperand.includes('.')) {
+            firstOperand = firstOperand + (firstOperand === '' ? '0.' : '.');
+            currentInput.textContent = firstOperand;
+        }
+    } else {
+        if (!secondOperand.includes('.')) {
+            secondOperand = secondOperand + (secondOperand === '' ? '0.' : '.');
+        }
+    }
 });

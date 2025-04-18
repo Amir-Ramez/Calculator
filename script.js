@@ -42,12 +42,24 @@ operators.forEach((operatorButton) => {
     });
 });
 
+function safeRound(num, maxDigits = 15) {
+    if (Number.isInteger(num)) return num;
+
+    const str = String(num);
+    if (str.length <= maxDigits) return num;
+
+    const rounded = parseFloat(num.toPrecision(maxDigits));
+    return Number.isInteger(rounded) ? Math.trunc(rounded) : rounded;
+}
+
 function evaluate() {
     result = equal(
         parseFloat(firstOperand),
         parseFloat(secondOperand),
         operator
     );
+
+    result = safeRound(result);
 
     inputHistory.textContent = '';
     currentInput.textContent = `${result}`;

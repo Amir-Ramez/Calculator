@@ -24,11 +24,24 @@ body {
 
 .calculator .display {
     margin: 15px 0px;
+    padding: 8px;
     width: 95%;
     height: 20%;
     background: #c0c4c4;
     border: 1px solid black;
     border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.calculator .history {
+    font-size: 22px;
+}
+
+.calculator .current {
+    font-size: 35px;
 }
 
 .calculator .buttons {

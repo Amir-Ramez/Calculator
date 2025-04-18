@@ -1,6 +1,6 @@
-let firstOperand = 0,
-    secondOperand = 0;
-let operator = '';
+let firstOperand = '',
+    secondOperand = '',
+    operator = '';
 
 const operands = document.querySelectorAll('.numericalButton');
 const operators = document.querySelectorAll('.operator');
@@ -10,10 +10,10 @@ let inputHistory = document.querySelector('.display .history');
 operands.forEach((numericalButton) => {
     numericalButton.addEventListener('click', (e) => {
         if (operator === '') {
-            firstOperand = firstOperand * 10 + +e.target.textContent;
+            firstOperand = firstOperand + e.target.textContent;
             currentInput.textContent = firstOperand;
         } else if (firstOperand && operator !== '') {
-            secondOperand = secondOperand * 10 + +e.target.textContent;
+            secondOperand = secondOperand + e.target.textContent;
             currentInput.textContent = secondOperand;
         }
     });
@@ -24,7 +24,6 @@ operators.forEach((operatorButton) => {
         if (firstOperand && !secondOperand) {
             operator = e.target.textContent;
             inputHistory.textContent = firstOperand + ' ' + operator;
-            currentInput.innerHTML = '';
         }
     });
 });

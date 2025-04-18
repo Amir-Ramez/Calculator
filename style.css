@@ -42,3 +42,13 @@ body {
     flex: 1 1 calc(25% - 10px);
     height: 63px;
 }
+
+.calculator .buttons .clearButton,
+.calculator .buttons .deleteButton {
+    background-color: #e6a65e;
+    flex: 1 1 calc(50% - 5px);
+}
+.calculator .buttons .clearButton:hover,
+.calculator .buttons .deleteButton:hover {
+    background-color: #d4862f;
+}

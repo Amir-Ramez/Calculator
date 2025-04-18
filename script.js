@@ -9,6 +9,8 @@ let currentInput = document.querySelector('.display .current');
 let inputHistory = document.querySelector('.display .history');
 let equalButton = document.querySelector('.equalButton');
 let dotButton = document.querySelector('.dotButton');
+let clearButton = document.querySelector('.clearButton');
+let deleteButton = document.querySelector('.deleteButton');
 
 operands.forEach((numericalButton) => {
     numericalButton.addEventListener('click', (e) => {
@@ -73,4 +75,17 @@ dotButton.addEventListener('click', () => {
             secondOperand = secondOperand + (secondOperand === '' ? '0.' : '.');
         }
     }
+});
+
+clearButton.addEventListener('click', () => {
+    currentInput.textContent = '0';
+    inputHistory.textContent = '';
+    firstOperand = secondOperand = '';
+    operator = '';
+});
+
+deleteButton.addEventListener('click', () => {
+    if (operator) secondOperand = '';
+    else firstOperand = '';
+    currentInput.textContent = '0';
 });

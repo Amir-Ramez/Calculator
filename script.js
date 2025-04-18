@@ -15,7 +15,10 @@ let deleteButton = document.querySelector('.deleteButton');
 operands.forEach((numericalButton) => {
     numericalButton.addEventListener('click', (e) => {
         if (operator === '') {
-            if (result) firstOperand = '';
+            if (result) {
+                firstOperand = '';
+                result = null;
+            }
 
             firstOperand = firstOperand + e.target.textContent;
             currentInput.textContent = firstOperand;
